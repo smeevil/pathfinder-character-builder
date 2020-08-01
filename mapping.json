@@ -1,0 +1,16 @@
+{
+  "components": {
+    "Toggle": {
+      "appearances": {
+        "default": {
+          "mapping": {
+            "width": 32,
+            "height": 16,
+            "thumbWidth": 14,
+            "thumbHeight": 14
+          }
+        }
+      }
+    }
+  }
+}

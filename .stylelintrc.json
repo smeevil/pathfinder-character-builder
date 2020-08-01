@@ -1,0 +1,42 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-css-modules"
+  ],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss",
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-react-native"
+  ],
+  "rules": {
+    "react-native/css-property-no-unknown": true,
+    "react-native/font-weight-no-ignored-values": true,
+    "react-native/style-property-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "max-nesting-depth": 10,
+    "property-no-unknown": [true,
+      {
+        "ignoreProperties": [
+          "resize-mode"
+        ]
+      }
+    ],
+    "order/properties-alphabetical-order": true,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "plugin/declaration-block-no-ignored-properties": true,
+    "scss/at-rule-no-unknown": true,
+    "selector-type-case": null,
+    "selector-type-no-unknown": null,
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$",
+    "selector-max-compound-selectors": 10,
+    "unit-whitelist": [
+      "pt",
+      "%"
+    ]
+  }
+}
