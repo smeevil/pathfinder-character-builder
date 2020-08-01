@@ -1,29 +1,21 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-
-  cardContainer: {
-    flex: 1,
-    paddingTop: 20,
-  },
-
   container: {
-    flex: 1,
-    padding: 10,
-  },
-
-  layout: {
     alignContent: 'center',
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
+    padding: 10,
   },
 
-  select: {
+  image: {
+    height: 256,
+    resizeMode: 'contain',
     width: '100%',
+  },
+
+  intro: {
+    margin: 10,
   },
 })

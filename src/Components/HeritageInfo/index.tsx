@@ -2,7 +2,8 @@ import { Card, Layout, Text } from '@ui-kitten/components'
 import React from 'react'
 import { View, ViewProps } from 'react-native'
 
-import { IHeritage, IRace } from '../../Screens/HomeScreen/interfaces'
+import { cleanText } from '../../Lib/cleanText'
+import { IHeritage, IRace } from '../../Screens/SelectHeritageScreen/interfaces'
 import { Pill } from '../Pill'
 import { styles } from './styles'
 
@@ -65,7 +66,7 @@ export const HeritageInfo: React.FC<IProps> = ({ race, heritage }): JSX.Element 
   return (
     <React.Fragment>
       <Card header={Header}>
-        <Text>{heritage.descr}</Text>
+        <Text>{cleanText(heritage.descr)}</Text>
       </Card>
       {Footer()}
     </React.Fragment>

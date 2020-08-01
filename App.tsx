@@ -4,10 +4,9 @@ import { EvaIconsPack } from '@ui-kitten/eva-icons'
 import React, { useState } from 'react'
 
 import mapping from './mapping.json'
+import { AppNavigator } from './src/Components/Navigator'
 import { ThemeContext } from './src/Contexts/ThemeContext'
-import { MainLayout } from './src/Layouts/MainLayout'
 
-console.log({ mapping })
 export default (): JSX.Element => {
   const [theme, setTheme] = useState('dark')
 
@@ -20,9 +19,9 @@ export default (): JSX.Element => {
     <React.Fragment>
       <IconRegistry icons={EvaIconsPack} />
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        {/* @ts-ignore */}
+        {/* @ts-expect-error */}
         <ApplicationProvider {...eva} theme={eva[theme]} customMapping={mapping}>
-          <MainLayout />
+          <AppNavigator />
         </ApplicationProvider>
       </ThemeContext.Provider>
     </React.Fragment>

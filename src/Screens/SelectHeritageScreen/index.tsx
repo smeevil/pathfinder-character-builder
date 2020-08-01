@@ -1,4 +1,5 @@
-import { IndexPath, Layout, Select, SelectGroup, SelectItem, Spinner } from '@ui-kitten/components'
+import { useNavigation } from '@react-navigation/native'
+import { Button, IndexPath, Layout, Select, SelectGroup, SelectItem, Spinner } from '@ui-kitten/components'
 import React, { useCallback, useEffect, useState } from 'react'
 
 import { HeritageInfo } from '../../Components/HeritageInfo'
@@ -7,6 +8,8 @@ import { IAncestriesData, IHeritage, IRace } from './interfaces'
 import { styles } from './styles'
 
 export const SelectHeritageScreen: React.FC = (): JSX.Element => {
+  const navigation = useNavigation()
+
   const [selectedIndex, setSelectedIndex] = React.useState(new IndexPath(0, 0))
   const [loading, setLoading] = useState<boolean>(true)
   const [data, setData] = useState<IAncestriesData>()
@@ -78,6 +81,12 @@ export const SelectHeritageScreen: React.FC = (): JSX.Element => {
         {Object.keys(groupedData).map(renderGroup)}
       </Select>
       {maybeRenderHeritageInfo()}
+      <Layout style={styles.buttonContainer} level="1">
+        <Button status="basic" onPress={() => navigation.goBack()}>
+          Back
+        </Button>
+        <Button onPress={() => navigation.navigate('SelectBackgroundScreen', { race, heritage })}>Continue</Button>
+      </Layout>
     </Layout>
   )
 }

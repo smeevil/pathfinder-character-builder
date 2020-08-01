@@ -5,12 +5,24 @@ import React, { useContext } from 'react'
 import { SafeAreaView, View } from 'react-native'
 
 import { ThemeContext } from '../../Contexts/ThemeContext'
+import { styles } from '../../Layouts/MainLayout/styles'
+import { HomeScreen } from '../../Screens/HomeScreen'
+import { SelectBackgroundScreen } from '../../Screens/SelectBackgroundScreen'
 import { SelectHeritageScreen } from '../../Screens/SelectHeritageScreen'
-import { styles } from './styles'
+import { ToBeContinuedScreen } from '../../Screens/ToBeContinuedScreen'
 
 const { Navigator, Screen } = createStackNavigator()
 
-export const MainLayout: React.FC = (): JSX.Element => {
+const HomeNavigator = () => (
+  <Navigator headerMode="none">
+    <Screen name="HomeScreen" component={HomeScreen} />
+    <Screen name="SelectHeritageScreen" component={SelectHeritageScreen} />
+    <Screen name="SelectBackgroundScreen" component={SelectBackgroundScreen} />
+    <Screen name="ToBeContinuedScreen" component={ToBeContinuedScreen} />
+  </Navigator>
+)
+
+export const AppNavigator: React.FC = (): JSX.Element => {
   const { theme, toggleTheme } = useContext(ThemeContext)
 
   const renderAccessoryRight = () => {
@@ -35,7 +47,7 @@ export const MainLayout: React.FC = (): JSX.Element => {
         <TopNavigation title={renderTitle} accessoryRight={renderAccessoryRight} />
         <Divider />
         <NavigationContainer>
-          <SelectHeritageScreen />
+          <HomeNavigator />
         </NavigationContainer>
       </SafeAreaView>
     </Layout>

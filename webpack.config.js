@@ -1,7 +1,7 @@
 const createExpoWebpackConfigAsync = require('@expo/webpack-config')
 
 module.exports = async function (env, argv) {
-  const config = await createExpoWebpackConfigAsync(
+  return await createExpoWebpackConfigAsync(
     {
       ...env,
       babel: {
@@ -10,5 +10,4 @@ module.exports = async function (env, argv) {
     },
     argv
   )
-  return config
 }
